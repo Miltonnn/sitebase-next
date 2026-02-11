@@ -1,8 +1,11 @@
+import { Empresa } from "@/components/layout/sections/Empresa";
+import { Hero } from "@/components/layout/sections/Hero";
 
 export default function Home() {
   return (
-    <div>
-      <h1>ola</h1>
-    </div>
+    <>
+      <Hero />
+      <Empresa />
+    </>
   );
 }
