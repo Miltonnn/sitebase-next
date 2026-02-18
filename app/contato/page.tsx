@@ -1,38 +1,18 @@
+import { Formulario } from "@/components/forms/Formulario";
+
 export default function ContatoPage() {
   return (
-    <section className="container mx-auto px-4 py-20">
-      <h1 className="text-4xl font-bold mb-6">Contato</h1>
-
-      <p className="text-muted-foreground mb-8">
-        Entre em contato conosco através do formulário abaixo.
-      </p>
-
-      <form className="flex flex-col gap-4 max-w-md">
-        <input
-          type="text"
-          placeholder="Seu nome"
-          className="border rounded-md px-4 py-2"
-        />
-
-        <input
-          type="email"
-          placeholder="Seu e-mail"
-          className="border rounded-md px-4 py-2"
-        />
-
-        <textarea
-          placeholder="Sua mensagem"
-          className="border rounded-md px-4 py-2"
-          rows={4}
-        />
-
-        <button
-          type="submit"
-          className="bg-primary text-primary-foreground rounded-md px-4 py-2 hover:opacity-90 transition"
-        >
-          Enviar
-        </button>
-      </form>
+    <section className="container">
+      <div className="grid grid-cols-12 items-center py-10">
+        <div className="col-span-12 xl:col-span-6">
+          <h2 className="text-3xl font-bold tracking-tight text-primary mb-4">
+            Entre em contato conosco
+          </h2>
+        </div>
+        <div className="col-span-12 xl:col-span-6">
+          <Formulario />
+        </div>
+      </div>
     </section>
   );
 }

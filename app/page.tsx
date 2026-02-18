@@ -1,5 +1,5 @@
-import { Empresa } from "@/components/layout/sections/Empresa";
-import { Hero } from "@/components/layout/sections/Hero";
+import { Empresa } from "@/components/sections/Empresa";
+import { Hero } from "@/components/sections/Hero";
 
 export default function Home() {
   return (

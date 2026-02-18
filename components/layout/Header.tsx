@@ -11,10 +11,9 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-    
-        <Link href="/" className="text-xl font-bold">
+    <header className="sticky top-0 z-50 w-full border-b bg-primary">
+      <div className="container flex h-16 items-center justify-between">
+        <Link href="/" className="text-xl font-bold text-white" title="SiteBase">
           SiteBase
         </Link>
 
@@ -27,12 +26,12 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                 title={link.name}
+                title={link.name}
                 className={`transition py-2 px-3 rounded-md duration-200
         ${
           isActive
-            ? "bg-black text-white"
-            : "text-muted-foreground hover:bg-black hover:text-white"
+            ? "bg-white text-black"
+            : "text-white hover:bg-white hover:text-black"
         }`}
               >
                 {link.name}

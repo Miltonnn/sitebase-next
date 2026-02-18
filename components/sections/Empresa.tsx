@@ -1,16 +1,17 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { siteConfig } from "@/lib/site-config";
 
 export function Empresa() {
   return (
-    <section className="container mx-auto px-4 py-20">
+    <section className="container">
       <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-10">
         <div className="flex flex-col gap-3">
-          <h2 className="text-4xl font-bold black">
-            DevMundo
+          <h2 className="text-4xl font-bold text-primary">
+            {siteConfig.name}
             <span className="text-sm font-semibold block text-gray-600 tracking-widest">
-              Desenvolvendo soluções modernas e eficientes para o seu negócio.
+              {siteConfig.description}
             </span>
           </h2>
           <p>
