@@ -8,8 +8,6 @@
   margin-inline: auto;
   max-width: 1600px;
   padding-inline: clamp(1rem, 5vw, 4rem);
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 @theme inline {

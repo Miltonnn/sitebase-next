@@ -12,7 +12,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-primary">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between py-10">
         <Link href="/" className="text-xl font-bold text-white" title="SiteBase">
           SiteBase
         </Link>

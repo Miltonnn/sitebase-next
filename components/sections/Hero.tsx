@@ -7,7 +7,7 @@ export function Hero() {
       <div className=" px-4 flex flex-col items-center text-center">
         {/* Título */}
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight max-w-3xl text-primary">
-          Desenvolvemos soluções digitais modernas
+          Desenvolvemos soluções <span className="text-black">digitais modernas</span>
         </h1>
 
         {/* Subtítulo */}
