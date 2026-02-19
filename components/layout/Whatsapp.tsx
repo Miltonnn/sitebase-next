@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Whatsapp() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -35,9 +36,12 @@ export default function Whatsapp() {
         target="_blank"
         className="w-12 h-12 rounded-full bg-green-400 flex items-center justify-center shadow-xl hover:scale-110 transition-transform"
       >
-        <img
+        <Image
           src="/assets/icons/whatsapp.svg"
           alt="WhatsApp"
+          title="Whatsapp"
+          width={28}
+          height={28}
           className="w-7 h-7"
         />
       </Link>

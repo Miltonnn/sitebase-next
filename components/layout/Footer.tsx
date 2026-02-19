@@ -3,6 +3,8 @@ import { navigationLinks } from "@/lib/navigation";
 import { SocialIcons } from "@/components/SocialIcons";
 import { siteConfig } from "@/lib/site-config";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -44,6 +46,7 @@ export function Footer() {
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className=" hover:text-primary transition duration-300"
+                  title="E-mail"
                 >
                   {siteConfig.contact.email}
                 </a>
@@ -51,10 +54,26 @@ export function Footer() {
               <span className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
                 <a
-                  href={`tel:${siteConfig.contact.phone}`}
+                  href={`https://wa.me/${siteConfig.contact.phone}`}
                   className=" hover:text-primary transition duration-300"
+                  title="Telefone"
                 >
                   {siteConfig.contact.phone}
+                </a>
+              </span>
+              <span className="flex items-center gap-2">
+                <FontAwesomeIcon
+                  icon={faWhatsapp}
+                  className="text-primary w-4 h-4"
+                />
+                <a
+                  href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                  className=" hover:text-primary transition duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="WhatsApp"
+                >
+                  {siteConfig.contact.whatsapp}
                 </a>
               </span>
               <span className="flex items-stretch gap-2">

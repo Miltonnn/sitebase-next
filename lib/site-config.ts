@@ -5,6 +5,7 @@ export const siteConfig = {
   contact: {
     email: "contato@devmundo.com",
     phone: "(11) 99999-9999",
+    whatsapp: "(11) 99999-9999",
     address: {
       rua: " Rua Exemplo,123",
       bairro: "Bairro Centro",

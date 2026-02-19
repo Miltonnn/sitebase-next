@@ -34,7 +34,8 @@ export function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="bg-transparent text-white hover:bg-black hover:text-white transition duration-300"
+              className="bg-transparent text-white hover:bg-black hover:text-white hover:border-black transition
+               duration-400"
             >
               <Link href="/servicos" title="Serviços">
                 Nossos Serviços

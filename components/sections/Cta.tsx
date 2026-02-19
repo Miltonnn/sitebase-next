@@ -12,7 +12,7 @@ export function Cta() {
           Entre em contato conosco hoje mesmo e descubra como podemos ajudar a
           impulsionar sua presença online.
         </p>
-        <Button asChild size="lg" className="text-md w-fit">
+        <Button asChild size="lg" className="text-md w-fit bg-primary hover:bg-primary/60 transition duration-300">
           <Link href="/contato" title="Contato">
             Entre em Contato
           </Link>
