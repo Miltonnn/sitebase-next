@@ -61,7 +61,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(64.73% 0.16023 258.327);
+  --primary: oklch(67.019% 0.17535 251.308);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(76.448% 0.108 258.612);
   --secondary-foreground: oklch(0.205 0 0);
@@ -131,4 +131,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+footer h3{
+  position: relative;
+}
+
+footer h3::after{
+  content: "";
+  display: block;
+  width: 1.875rem;
+  height: .125rem;
+  border-radius: 6.25rem;
+  background-color: var(--primary);
+  margin-top: .125rem;
 }

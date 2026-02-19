@@ -11,14 +11,14 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-primary">
+    <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-16 items-center justify-between py-10">
-        <Link href="/" className="text-xl font-bold text-white" title="SiteBase">
+        <Link href="/" className="text-xl font-bold text-black" title="SiteBase">
           SiteBase
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-4 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-2 text-sm font-medium">
           {navigationLinks.map((link) => {
             const isActive = pathname === link.href;
 
@@ -30,8 +30,8 @@ export function Header() {
                 className={`transition py-2 px-3 rounded-md duration-200
         ${
           isActive
-            ? "bg-white text-black"
-            : "text-white hover:bg-white hover:text-black"
+            ? "bg-primary text-white"
+            : "text-gray-600 hover:bg-primary hover:text-white"
         }`}
               >
                 {link.name}
