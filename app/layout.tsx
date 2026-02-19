@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "SiteBase - Soluções Digitais Modernas",
-  description: "Desenvolvemos sites rápidos, responsivos e otimizados para gerar resultados reais para o seu negócio.",
+  description:
+    "Desenvolvemos sites rápidos, responsivos e otimizados para gerar resultados reais para o seu negócio.",
 };
 
 export default function RootLayout({
@@ -30,6 +32,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
