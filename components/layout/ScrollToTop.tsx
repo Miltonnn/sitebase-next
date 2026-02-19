@@ -26,7 +26,7 @@ export function ScrollToTop() {
   return (
     <div
       className={`
-        fixed bottom-20 right-10 z-50
+        fixed bottom-20 right-8 z-50
         transition-all duration-300 ease-in-out
         ${isVisible
           ? "opacity-100 translate-y-0"
@@ -36,9 +36,9 @@ export function ScrollToTop() {
       <Button
         onClick={scrollToTop}
         size="icon"
-        className="rounded-full shadow-lg h-10 w-10"
+        className="rounded-full shadow-lg h-12 w-12"
       >
-        <ArrowUp />
+        <ArrowUp size={28} strokeWidth={3} />
       </Button>
     </div>
   )

@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section
-      className="relative w-full py-24 md:py-32 bg-cover bg-center h-[50vh] md:h-[80vh] flex items-center justify-center"
+      className="relative w-full py-24 md:py-32 bg-cover bg-center h-[70vh] md:h-[80vh] flex items-center justify-center"
       style={{
-        backgroundImage: "url('/assets/banner-01.png')",
+        backgroundImage: "url('/assets/banner/banner-01.png')",
         backgroundColor: "rgba(0, 0, 0, 0.3)",
         backgroundBlendMode: "overlay",
       }}

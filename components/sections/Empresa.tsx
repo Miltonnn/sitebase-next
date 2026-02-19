@@ -34,7 +34,7 @@ export function Empresa() {
         </div>
         <div>
           <Image
-            src="/assets/sem-image.webp"
+            src="/assets/empresa/sem-image.webp"
             alt="Imagem ilustrativa"
             title="Imagem ilustrativa"
             width={600}
