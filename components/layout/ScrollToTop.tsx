@@ -26,7 +26,7 @@ export function ScrollToTop() {
   return (
     <div
       className={`
-        fixed bottom-20 right-8 z-50
+        fixed bottom-20 md:right-8 right-3 z-50
         transition-all duration-300 ease-in-out
         ${isVisible
           ? "opacity-100 translate-y-0"

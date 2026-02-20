@@ -2,27 +2,23 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight, Hand, SquareX } from "lucide-react";
 
 export default function Whatsapp() {
+  const [open, setOpen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [success, setSuccess] = useState(false);
 
-  // só mostra tooltip se ainda não enviou
   useEffect(() => {
     if (localStorage.getItem("leadSent")) return;
 
     const interval = setInterval(() => {
       setShowTooltip(true);
-
-      setTimeout(() => {
-        setShowTooltip(false);
-      }, 3000);
+      setTimeout(() => setShowTooltip(false), 3000);
     }, 8000);
 
     return () => clearInterval(interval);
@@ -38,72 +34,47 @@ export default function Whatsapp() {
     });
 
     localStorage.setItem("leadSent", "true");
+
+    setOpen(false);
     setSuccess(true);
+
     setEmail("");
     setPhone("");
     setShowTooltip(false);
+
+    setTimeout(() => {
+      setSuccess(false);
+    }, 2500);
   };
 
   return (
-    <div className="fixed bottom-40 right-8 z-50 flex items-center">
-      {showTooltip && (
-        <div className="relative mr-4 tooltip-animate">
-          <div className="bg-white text-gray-700 px-4 py-2 rounded-xl shadow-lg text-sm">
-            Converse conosco!
-          </div>
-          <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45"></div>
-        </div>
-      )}
+    <>
+      {/* CHAT BOX */}
+      {open && (
+        <div className="fixed bottom-60 md:right-8 right-3 z-50 w-80 animate-in slide-in-from-bottom fade-in duration-300">
+          <div className="bg-white shadow-2xl rounded-2xl overflow-hidden border">
 
-      <Dialog>
-        <DialogTrigger asChild>
-          <div className="relative">
-            <span className="whatsapp-wave"></span>
-            <button className="relative w-12 h-12 rounded-full bg-green-500 flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
-              <Image
-                src="/assets/icons/whatsapp.svg"
-                alt="WhatsApp"
-                width={28}
-                height={28}
-              />
-            </button>
-          </div>
-        </DialogTrigger>
-
-        <DialogContent  className="sm:max-w-md rounded-2xl p-0 overflow-hidden">
-          <div className="flex items-center gap-3 px-6 py-4 border-b bg-white">
-            <div className="w-9 h-9 rounded-full bg-green-500 flex items-center justify-center">
-              <Image
-                src="/assets/icons/whatsapp.svg"
-                alt="WhatsApp"
-                width={18}
-                height={18}
-              />
-            </div>
-
-            <div>
-              <p className="font-medium text-sm">Atendimento</p>
-              <p className="text-xs text-green-500">Online agora</p>
-            </div>
-          </div>
-
-          <div className="p-6">
-            {success ? (
-              <div className="text-center space-y-3 py-6">
-                <h2 className="text-lg font-semibold text-green-600">
-                  ✅ Recebemos seus dados!
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Em breve entraremos em contato.
-                </p>
+            <div className="bg-green-500 text-white px-4 py-3 flex justify-between items-center">
+              <div>
+                <p className="text-sm font-semibold">Atendimento</p>
+                <p className="text-xs opacity-90">● Online agora</p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <p className="text-sm text-muted-foreground flex items-center">
-                  Deixe seu contato e retornamos rapidinho
-                  <ArrowDown className="ml-2 text-green-500" />
-                </p>
 
+              <button
+                onClick={() => setOpen(false)}
+                className="text-white text-sm opacity-80 hover:opacity-100"
+              >
+                <SquareX size={22} />
+              </button>
+            </div>
+
+            {/* MENSAGEM */}
+            <div className="p-4 space-y-4 bg-gray-50">
+              <div className="bg-white p-3 rounded-xl shadow text-sm w-fit max-w-[85%]">
+                <Hand className="mr-1 inline-block text-gray-600" size={16} /> Olá! Deixe seu contato e retornamos rapidinho.
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-3">
                 <Input
                   type="email"
                   placeholder="Seu e-mail"
@@ -122,15 +93,76 @@ export default function Whatsapp() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-green-500 hover:bg-green-600"
+                  className="w-full bg-green-500 hover:bg-green-600 text-md"
                 >
                   Enviar
+                  <ArrowRight size={18} className="ml-2" />
                 </Button>
               </form>
-            )}
+            </div>
           </div>
-        </DialogContent>
-      </Dialog>
-    </div>
+        </div>
+      )}
+
+      {/* BOTÃO FLUTUANTE */}
+      <div className="fixed bottom-40 md:right-8 right-3 z-50 flex items-center">
+       <span className="whatsapp-wave"></span>
+        {showTooltip && (
+          <div className="relative mr-4">
+            <div className="bg-white text-gray-700 px-4 py-2 rounded-xl shadow-lg text-sm">
+              Converse conosco!
+            </div>
+            <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45"></div>
+          </div>
+        )}
+
+        <button
+          onClick={() => setOpen(!open)}
+          className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-xl hover:scale-110 transition-transform"
+        >
+          <Image
+            src="/assets/icons/whatsapp.svg"
+            alt="WhatsApp"
+            width={28}
+            height={28}
+          />
+        </button>
+      </div>
+
+      {/* MENSAGEM DE ENVIO */}
+      {success && (
+        <div className="fixed bottom-6 md:right-8 right-3 z-60 animate-in slide-in-from-right fade-in duration-300">
+          <div className="relative overflow-hidden bg-white shadow-2xl border rounded-2xl p-6 w-80 flex items-start gap-4">
+
+            <div className="absolute bottom-40 left-0 h-1 bg-blue-600 animate-progress" />
+
+            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+              <svg
+                className="w-6 h-6 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-sm">
+                Dados enviados com sucesso
+              </h3>
+              <p className="text-xs text-muted-foreground mt-1">
+                Em breve entraremos em contato.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
