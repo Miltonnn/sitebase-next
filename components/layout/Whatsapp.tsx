@@ -53,7 +53,6 @@ export default function Whatsapp() {
       {open && (
         <div className="fixed bottom-60 md:right-8 right-3 z-50 w-80 animate-in slide-in-from-bottom fade-in duration-300">
           <div className="bg-white shadow-2xl rounded-2xl overflow-hidden border">
-
             <div className="bg-green-500 text-white px-4 py-3 flex justify-between items-center">
               <div>
                 <p className="text-sm font-semibold">Atendimento</p>
@@ -71,7 +70,8 @@ export default function Whatsapp() {
             {/* MENSAGEM */}
             <div className="p-4 space-y-4 bg-gray-50">
               <div className="bg-white p-3 rounded-xl shadow text-sm w-fit max-w-[85%]">
-                <Hand className="mr-1 inline-block text-gray-600" size={16} /> Olá! Deixe seu contato e retornamos rapidinho.
+                <Hand className="mr-1 inline-block text-gray-600" size={16} />
+                Olá! Deixe seu contato e retornamos rapidinho.
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -106,7 +106,7 @@ export default function Whatsapp() {
 
       {/* BOTÃO FLUTUANTE */}
       <div className="fixed bottom-40 md:right-8 right-3 z-50 flex items-center">
-       <span className="whatsapp-wave"></span>
+        <span className="whatsapp-wave"></span>
         {showTooltip && (
           <div className="relative mr-4">
             <div className="bg-white text-gray-700 px-4 py-2 rounded-xl shadow-lg text-sm">
@@ -133,7 +133,6 @@ export default function Whatsapp() {
       {success && (
         <div className="fixed bottom-6 md:right-8 right-3 z-60 animate-in slide-in-from-right fade-in duration-300">
           <div className="relative overflow-hidden bg-white shadow-2xl border rounded-2xl p-6 w-80 flex items-start gap-4">
-
             <div className="absolute bottom-40 left-0 h-1 bg-blue-600 animate-progress" />
 
             <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center shrink-0">

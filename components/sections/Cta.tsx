@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 export function Cta() {
   return (
     <section className="bg-zinc-800 py-20">
-      <div className="container flex flex-col items-center justify-center gap-5">
+      <div className="container flex flex-col items-center justify-center gap-5 text-center">
         <h2 className="text-4xl font-bold text-gray-200">
           Pronto para transformar seu negócio?
         </h2>
