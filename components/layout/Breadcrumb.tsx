@@ -10,13 +10,37 @@ export function Breadcrumb() {
 
   if (pathname === "/") return null;
 
-  const currentPage = navigationLinks.find((link) => link.href === pathname);
+  const segments = pathname.split("/").filter(Boolean);
+
+  const breadcrumbItems: { name: string; href: string }[] = [];
+
+  let currentLevel = navigationLinks;
+
+  let accumulatedPath = "";
+
+  for (const segment of segments) {
+    accumulatedPath += `/${segment}`;
+
+    const found = currentLevel.find((link) =>
+      link.href === accumulatedPath
+    );
+
+    if (found) {
+      breadcrumbItems.push({
+        name: found.name,
+        href: found.href,
+      });
+
+      currentLevel = found.children ?? [];
+    }
+  }
 
   return (
     <div className="w-full bg-gray-100">
       <div className="container py-4">
-        <nav className="py-4 text-sm text-muted-foreground ">
-          <ol className="flex items-center gap-1">
+        <nav className="py-4 text-sm text-muted-foreground">
+          <ol className="flex items-center gap-1 flex-wrap">
+            {/* Home */}
             <li>
               <Link
                 href="/"
@@ -26,10 +50,25 @@ export function Breadcrumb() {
                 Home
               </Link>
             </li>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <li className="text-foreground font-medium">
-              {currentPage?.name ?? "Página"}
-            </li>
+
+            {breadcrumbItems.map((item, index) => (
+              <span key={item.href} className="flex items-center gap-1">
+                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+
+                {index === breadcrumbItems.length - 1 ? (
+                  <span className="text-foreground font-medium">
+                    {item.name}
+                  </span>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </span>
+            ))}
           </ol>
         </nav>
       </div>
