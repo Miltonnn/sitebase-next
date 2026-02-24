@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowUp } from "lucide-react"
 
-export function ScrollToTop() {
+export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export function ScrollToTop() {
         onClick={scrollToTop}
         size="icon"
         className="rounded-full shadow-lg h-12 w-12"
+        aria-label="Voltar para o topo da pagina"
       >
         <ArrowUp size={28} strokeWidth={3} />
       </Button>

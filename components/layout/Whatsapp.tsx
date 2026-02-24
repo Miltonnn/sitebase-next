@@ -44,7 +44,7 @@ export default function Whatsapp() {
 
     setTimeout(() => {
       setSuccess(false);
-    }, 2500);
+    }, 2000);
   };
 
   return (
@@ -61,6 +61,7 @@ export default function Whatsapp() {
 
               <button
                 onClick={() => setOpen(false)}
+                aria-label="Fechar conversa"
                 className="text-white text-sm opacity-80 hover:opacity-100"
               >
                 <SquareX size={22} />
@@ -106,7 +107,6 @@ export default function Whatsapp() {
 
       {/* BOTÃO FLUTUANTE */}
       <div className="fixed bottom-40 md:right-8 right-3 z-50 flex items-center">
-        <span className="whatsapp-wave"></span>
         {showTooltip && (
           <div className="relative mr-4">
             <div className="bg-white text-gray-700 px-4 py-2 rounded-xl shadow-lg text-sm">
@@ -118,8 +118,10 @@ export default function Whatsapp() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-xl hover:scale-110 transition-transform"
+          aria-label="Abrir conversa no WhatsApp"
+          className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-xl hover:scale-110 transition-transform relative"
         >
+        <span className="whatsapp-wave"></span>
           <Image
             src="/assets/icons/whatsapp.svg"
             alt="WhatsApp"

@@ -25,7 +25,7 @@ export function NavItem({ link, depth = 0 }: Props) {
     <div className="relative group">
       <Link
         href={link.href}
-        className={`flex items-center gap-1 py-2 px-3 transition duration-200
+        className={`flex items-center gap-1 py-2 px-3 transition duration-200 rounded-sm
           ${
             isActive
               ? "bg-primary text-white"
