@@ -54,9 +54,9 @@ export function Footer() {
               <span className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
                 <a
-                  href={`https://wa.me/${siteConfig.contact.phone}`}
-                  className=" hover:text-primary transition duration-300"
-                  title="Telefone"
+                  href={`tel:${siteConfig.contact.phone}`}
+                  className="hover:text-primary transition duration-300"
+                  title="Ligar"
                 >
                   {siteConfig.contact.phone}
                 </a>
