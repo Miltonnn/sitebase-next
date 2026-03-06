@@ -15,7 +15,7 @@ export function Hero() {
         className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-black/40 z-10" />
+      <div className="absolute inset-0 bg-black/70 md:bg-black/40 z-10" />
 
       <div className="container absolute z-30">
         <div className="px-4 flex flex-col items-center xl:items-start text-center xl:text-left">
