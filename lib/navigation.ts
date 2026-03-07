@@ -29,6 +29,31 @@ export const navigationLinks: NavLink[] = [
         href: "/servicos/landing-pages",
         description: "Páginas focadas em conversão.",
       },
+      {
+        name: "Posicionamento",
+        href: "/servicos/posicionamento",
+        description: "Páginas focadas em conversão.",
+      },
+      {
+        name: "Google meu negocio",
+        href: "/servicos/google-meu-negocio",
+        description: "Páginas focadas em conversão.",
+      },
+      {
+        name: "Testando",
+        href: "/servicos/testando",
+        description: "Páginas focadas em conversão.",
+      },
+      {
+        name: "Valores",
+        href: "/servicos/valores",
+        description: "Páginas focadas em conversão.",
+      },
+      {
+        name: "Perspectiva",
+        href: "/servicos/perspectiva",
+        description: "Páginas focadas em conversão.",
+      },
     ],
   },
   {

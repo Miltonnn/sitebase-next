@@ -16,8 +16,7 @@ export function NavItem({ link, depth = 0 }: Props) {
   const pathname = usePathname();
 
   const isActive =
-    pathname === link.href ||
-    pathname.startsWith(link.href + "/");
+    pathname === link.href || pathname.startsWith(link.href + "/");
 
   const hasChildren = !!link.children?.length;
 
@@ -31,9 +30,8 @@ export function NavItem({ link, depth = 0 }: Props) {
               ? "bg-primary text-white"
               : "text-gray-600 hover:bg-primary hover:text-white"
           }`}
-          title={link.name}
+        title={link.name}
       >
-        
         {link.name}
         {hasChildren && <ChevronDown className="h-4 w-4" />}
       </Link>
@@ -41,17 +39,14 @@ export function NavItem({ link, depth = 0 }: Props) {
       {hasChildren && (
         <div
           className={`
-            absolute left-0 mt-2 w-42 bg-white shadow-lg rounded-md overflow-hidden
-            opacity-0 invisible group-hover:opacity-100 group-hover:visible
-            transition-all duration-200 z-50
-          `}
+          absolute left-0 mt-2 w-50 max-h-56 bg-white shadow-lg rounded-sm
+          overflow-hidden overflow-y-scroll no-arrows-scroll
+          opacity-0 invisible group-hover:opacity-100 group-hover:visible
+          transition-all duration-200 z-50
+        `}
         >
           {link.children!.map((child) => (
-            <NavItem
-              key={child.href}
-              link={child}
-              depth={depth + 1}
-            />
+            <NavItem key={child.href} link={child} depth={depth + 1} />
           ))}
         </div>
       )}

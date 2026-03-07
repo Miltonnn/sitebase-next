@@ -180,3 +180,19 @@ footer h3::after{
   z-index: -1;
 }
 
+/* Scrollbar moderna */
+.no-arrows-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.no-arrows-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-arrows-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+.no-arrows-scroll::-webkit-scrollbar-button {
+  display: none;
+}

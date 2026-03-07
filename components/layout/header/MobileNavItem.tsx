@@ -53,8 +53,8 @@ export function MobileNavItem({
 
       {hasChildren && (
         <div
-          className={`overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-96" : "max-h-0"
+          className={`overflow-hidden overflow-y-auto no-arrows-scroll transition-all duration-300 ${
+            isOpen ? "max-h-56" : "max-h-0"
           }`}
         >
           <div className="bg-gray-50">
