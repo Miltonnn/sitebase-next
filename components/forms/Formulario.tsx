@@ -1,6 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { contactSchema, ContactFormData } from "@/schemas/contactSchema";
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -15,54 +20,55 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+
 import { ArrowRight, MessageSquare } from "lucide-react";
 
 export function Formulario() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [source, setSource] = useState("");
-  const [message, setMessage] = useState("");
-
   const [openSuccess, setOpenSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      terms: false,
+    },
+  });
 
-    await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        phone,
-        source,
-        message,
-      }),
-    });
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    setLoading(false);
-    setOpenSuccess(true);
+      const result = await response.json();
 
-    // Resetar campos
-    setName("");
-    setEmail("");
-    setPhone("");
-    setSource("");
-    setMessage("");
+      if (!response.ok) {
+        alert(result.error || "Erro ao enviar mensagem");
+        return;
+      }
 
-    // Fechar popup automático
-    setTimeout(() => {
-      setOpenSuccess(false);
-    }, 4000);
+      setOpenSuccess(true);
+      reset();
+    } catch (error) {
+      console.error(error);
+      alert("Erro de conexão com servidor");
+    }
   };
 
   return (
     <>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         className="w-full flex flex-col shadow-2xl p-5 xl:p-10 rounded-3xl gap-5"
       >
         <div className="flex items-center gap-3">
@@ -71,15 +77,16 @@ export function Formulario() {
             Envie-nos uma mensagem
           </h3>
         </div>
+
+        {/* NOME E EMAIL */}
+
         <div className="grid gap-6 md:grid-cols-2 pt-4">
           <div className="space-y-3">
             <Label className="text-md">Nome completo</Label>
-            <Input
-              placeholder="Seu nome completo"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
+            <Input placeholder="Seu nome completo" {...register("name")} />
+            {errors.name && (
+              <p className="text-red-500 text-sm">{errors.name.message}</p>
+            )}
           </div>
 
           <div className="space-y-3">
@@ -87,12 +94,15 @@ export function Formulario() {
             <Input
               type="email"
               placeholder="seu@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              {...register("email")}
             />
+            {errors.email && (
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
           </div>
         </div>
+
+        {/* TELEFONE E ORIGEM */}
 
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-3">
@@ -100,18 +110,21 @@ export function Formulario() {
             <Input
               type="tel"
               placeholder="(11) 99999-9999"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
+              {...register("phone")}
             />
+            {errors.phone && (
+              <p className="text-red-500 text-sm">{errors.phone.message}</p>
+            )}
           </div>
 
           <div className="space-y-3">
             <Label className="text-md">Como nos conheceu?</Label>
-            <Select onValueChange={(value) => setSource(value)}>
+
+            <Select onValueChange={(value) => setValue("source", value)}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Selecione uma opção" />
               </SelectTrigger>
+
               <SelectContent>
                 <SelectItem value="Instagram">Instagram</SelectItem>
                 <SelectItem value="Google">Google</SelectItem>
@@ -119,53 +132,78 @@ export function Formulario() {
                 <SelectItem value="Outro">Outro</SelectItem>
               </SelectContent>
             </Select>
+
+            {errors.source && (
+              <p className="text-red-500 text-sm">{errors.source.message}</p>
+            )}
           </div>
         </div>
+
+        {/* MENSAGEM */}
 
         <div className="space-y-3">
           <Label className="text-md">Mensagem</Label>
           <Textarea
             placeholder="Escreva sua mensagem..."
             className="min-h-37.5 resize-none"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
+            {...register("message")}
           />
+
+          {errors.message && (
+            <p className="text-red-500 text-sm">{errors.message.message}</p>
+          )}
         </div>
+
+        {/* CHECKBOX + BOTAO */}
 
         <div className="grid gap-6 md:grid-cols-12 items-center">
           <div className="md:col-span-7">
             <FieldGroup>
               <Field orientation="horizontal">
-                <Checkbox
-                  id="terms-checkbox-basic"
-                  name="terms-checkbox-basic"
+                <Controller
+                  name="terms"
+                  control={control}
+                  render={({ field }) => (
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={(checked) =>
+                        field.onChange(checked === true)
+                      }
+                    />
+                  )}
                 />
-                <FieldLabel
-                  htmlFor="terms-checkbox-basic"
-                  className="text-gray-500"
-                >
+
+                <FieldLabel className="text-gray-500">
                   <span>
                     Ao informar meus dados, eu concordo com a
                     <span className="block font-bold text-black">
-                      Politica de Privacidade
+                      Política de Privacidade
                     </span>
                   </span>
                 </FieldLabel>
               </Field>
+
+              {errors.terms && (
+                <p className="text-red-500 text-sm">{errors.terms.message}</p>
+              )}
             </FieldGroup>
           </div>
 
           <div className="md:col-span-5">
-            <Button className="py-6 w-full" type="submit" disabled={loading}>
-              {loading ? "Enviando..." : "Enviar mensagem"}
+            <Button
+              className="py-6 w-full"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Enviando..." : "Enviar mensagem"}
               <ArrowRight />
             </Button>
           </div>
         </div>
       </form>
 
-      {/* POPUP DE SUCESSO */}
+      {/* POPUP SUCESSO */}
+
       <Dialog open={openSuccess} onOpenChange={setOpenSuccess}>
         <DialogContent className="sm:max-w-sm text-center rounded-2xl">
           <div className="flex flex-col items-center gap-4 py-6">

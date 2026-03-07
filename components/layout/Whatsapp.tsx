@@ -12,13 +12,23 @@ export default function Whatsapp() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("leadSent")) return;
 
+    let count = 0;
+
     const interval = setInterval(() => {
+      if (count >= 3) return;
+
       setShowTooltip(true);
-      setTimeout(() => setShowTooltip(false), 3000);
+
+      setTimeout(() => {
+        setShowTooltip(false);
+      }, 3000);
+
+      count++;
     }, 8000);
 
     return () => clearInterval(interval);
@@ -27,29 +37,58 @@ export default function Whatsapp() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, phone }),
-    });
+    if (!email || !phone) {
+      alert("Preencha todos os campos");
+      return;
+    }
 
-    localStorage.setItem("leadSent", "true");
+    if (!email.includes("@")) {
+      alert("Email inválido");
+      return;
+    }
 
-    setOpen(false);
-    setSuccess(true);
+    setLoading(true);
 
-    setEmail("");
-    setPhone("");
-    setShowTooltip(false);
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, phone }),
+      });
 
-    setTimeout(() => {
-      setSuccess(false);
-    }, 2000);
+      const result = await response.json();
+
+      if (!response.ok) {
+        alert(result.error || "Erro ao enviar dados");
+        return;
+      }
+
+      localStorage.setItem("leadSent", "true");
+
+      setOpen(false);
+      setSuccess(true);
+
+      setEmail("");
+      setPhone("");
+      setShowTooltip(false);
+
+      setTimeout(() => {
+        setSuccess(false);
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+      alert("Erro de conexão com servidor");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
       {/* CHAT BOX */}
+
       {open && (
         <div className="fixed bottom-60 md:right-8 right-3 z-50 w-80 animate-in slide-in-from-bottom fade-in duration-300">
           <div className="bg-white shadow-2xl rounded-2xl overflow-hidden border">
@@ -69,6 +108,7 @@ export default function Whatsapp() {
             </div>
 
             {/* MENSAGEM */}
+
             <div className="p-4 space-y-4 bg-gray-50">
               <div className="bg-white p-3 rounded-xl shadow text-sm w-fit max-w-[85%]">
                 <Hand className="mr-1 inline-block text-gray-600" size={16} />
@@ -94,9 +134,10 @@ export default function Whatsapp() {
 
                 <Button
                   type="submit"
+                  disabled={loading}
                   className="w-full bg-green-500 hover:bg-green-600 text-md"
                 >
-                  Enviar
+                  {loading ? "Enviando..." : "Enviar"}
                   <ArrowRight size={18} className="ml-2" />
                 </Button>
               </form>
@@ -106,12 +147,14 @@ export default function Whatsapp() {
       )}
 
       {/* BOTÃO FLUTUANTE */}
+
       <div className="fixed bottom-40 md:right-8 right-3 z-50 flex items-center">
         {showTooltip && (
           <div className="relative mr-4">
             <div className="bg-white text-gray-700 px-4 py-2 rounded-xl shadow-lg text-sm">
               Converse conosco!
             </div>
+
             <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45"></div>
           </div>
         )}
@@ -121,7 +164,8 @@ export default function Whatsapp() {
           aria-label="Abrir conversa no WhatsApp"
           className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-xl hover:scale-110 transition-transform relative"
         >
-        <span className="whatsapp-wave"></span>
+          <span className="whatsapp-wave"></span>
+
           <Image
             src="/assets/icons/whatsapp.svg"
             alt="WhatsApp"
@@ -131,7 +175,8 @@ export default function Whatsapp() {
         </button>
       </div>
 
-      {/* MENSAGEM DE ENVIO */}
+      {/* MENSAGEM DE SUCESSO */}
+
       {success && (
         <div className="fixed bottom-6 md:right-8 right-3 z-60 animate-in slide-in-from-right fade-in duration-300">
           <div className="relative overflow-hidden bg-white shadow-2xl border rounded-2xl p-6 w-80 flex items-start gap-4">
@@ -157,6 +202,7 @@ export default function Whatsapp() {
               <h3 className="font-semibold text-sm">
                 Dados enviados com sucesso
               </h3>
+
               <p className="text-xs text-muted-foreground mt-1">
                 Em breve entraremos em contato.
               </p>
