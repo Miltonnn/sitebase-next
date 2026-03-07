@@ -3,7 +3,6 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
-
 .container {
   margin-inline: auto;
   max-width: 1600px;
@@ -180,3 +179,4 @@ footer h3::after{
   animation: whatsapp-wave 2s infinite;
   z-index: -1;
 }
+

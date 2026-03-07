@@ -10,13 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -31,7 +24,6 @@ export function Formulario() {
     control,
     handleSubmit,
     reset,
-    setValue,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -120,18 +112,17 @@ export function Formulario() {
           <div className="space-y-3">
             <Label className="text-md">Como nos conheceu?</Label>
 
-            <Select onValueChange={(value) => setValue("source", value)}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Selecione uma opção" />
-              </SelectTrigger>
-
-              <SelectContent>
-                <SelectItem value="Instagram">Instagram</SelectItem>
-                <SelectItem value="Google">Google</SelectItem>
-                <SelectItem value="Indicação">Indicação</SelectItem>
-                <SelectItem value="Outro">Outro</SelectItem>
-              </SelectContent>
-            </Select>
+            <select
+              {...register("source")}
+              className="w-full h-10 rounded-md border border-input bg-background px-3 text-muted-foreground 
+              focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+            >
+              <option value="">Selecione uma opção</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Google">Google</option>
+              <option value="Indicação">Indicação</option>
+              <option value="Outro">Outro</option>
+            </select>
 
             {errors.source && (
               <p className="text-red-500 text-sm">{errors.source.message}</p>
