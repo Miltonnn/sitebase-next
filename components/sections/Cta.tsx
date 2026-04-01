@@ -5,7 +5,7 @@ export function Cta() {
   return (
     <section className="py-20">
       <div className="container flex flex-col items-center justify-center gap-5 text-center bg-gradient-to-r from-primary to-purple-500 py-20 rounded-4xl shadow-2xl">
-        <h2 className="text-3xl font-bold text-gray-200">
+        <h2 className="text-3xl font-bold text-white">
           Pronto para transformar seu negócio?
         </h2>
         <p className="text-lg text-gray-300">
