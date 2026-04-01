@@ -21,7 +21,7 @@ export function SocialIcons({
             title={social.name}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition duration-300"
+            className="w-10 h-10 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors text-white"
             aria-label={social.name}
           >
             <Icon size={iconSize} />

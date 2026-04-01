@@ -6,7 +6,18 @@ import { siteConfig } from "@/lib/site-config";
 export function Empresa() {
   return (
     <section className="container py-15">
-      <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-10">
+      <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-20 justify-between">
+        <div>
+          <Image
+            src="/assets/empresa/empresa.jpg"
+            alt="Imagem ilustrativa"
+            title="Imagem ilustrativa"
+            width={300}
+            height={300}
+            className="w-full rounded-lg"
+          />
+        </div>
+
         <div className="flex flex-col gap-3">
           <h2 className="text-4xl font-bold text-primary">
             {siteConfig.name}
@@ -14,33 +25,27 @@ export function Empresa() {
               {siteConfig.description}
             </span>
           </h2>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio
-            voluptates fuga provident, blanditiis doloremque vitae? Voluptatum
-            at suscipit, officiis quos aliquid esse nulla iusto, eligendi et
-            perspiciatis, enim dolorum aspernatur!
+          <p className="text-muted-foreground">
+            Há mais de 10 anos no mercado, somos especialistas em transformar
+            ideias em realidade digital. Nossa equipe multidisciplinar combina
+            expertise técnica com criatividade para entregar soluções que
+            realmente fazem a diferença.
           </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
-            quisquam, impedit aliquid iure obcaecati repellendus quas illum
-            rerum fuga, consequuntur sunt eaque facilis culpa porro accusamus
-            dignissimos cupiditate expedita reiciendis!
+          <p className="text-muted-foreground">
+            Trabalhamos lado a lado com nossos clientes, entendendo suas
+            necessidades e desafios para criar estratégias personalizadas que
+            geram resultados reais e sustentáveis.
           </p>
-          <Button asChild size="lg" className="text-md w-fit mt-2.5">
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="bg-transparent text-lg p-6 bg-outline text-primary border-primary hover:bg-black hover:text-gray-100 hover:border-black duration-400 w-fit mt-4"
+          >
             <Link href="\quem-somos" title="Empresa">
-              Saiba Mais
+              Conheça nossa história
             </Link>
           </Button>
-        </div>
-        <div>
-          <Image
-            src="/assets/empresa/sem-image.webp"
-            alt="Imagem ilustrativa"
-            title="Imagem ilustrativa"
-            width={600}
-            height={600}
-            className="w-full h-auto"
-          />
         </div>
       </div>
     </section>

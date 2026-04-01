@@ -10,26 +10,30 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-muted/40">
+    <footer className="border-t bg-gradient-to-r from-primary to-purple-500">
       <section className="container py-15">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-20">
           <div className="space-y-4">
-            <h2 className="text-lg font-bold">SiteBase</h2>
-            <p className="text-sm text-muted-foreground">
+            <h2 className="text-xl text-white text-white font-bold">
+              SiteBase
+            </h2>
+            <p className="text-md text-white">
               Desenvolvendo soluções modernas e eficientes para o seu negócio.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Navegação</h3>
+            <h3 className="text-xl text-white text-white font-semibold">
+              Navegação
+            </h3>
 
-            <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
+            <nav className="flex flex-col gap-2 text-md text-white">
               {navigationLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   title={link.name}
-                  className="hover:text-primary transition"
+                  className="hover:text-gray-300 transition"
                 >
                   {link.name}
                 </Link>
@@ -38,24 +42,24 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contato</h3>
+            <h3 className="text-xl text-white font-semibold">Contato</h3>
 
-            <div className="text-sm text-muted-foreground space-y-2">
+            <div className="text-md text-white space-y-2">
               <span className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary" />
+                <Mail className="h-4 w-4" />
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className=" hover:text-primary transition duration-300"
+                  className="hover:text-gray-300 transition duration-300"
                   title="E-mail"
                 >
                   {siteConfig.contact.email}
                 </a>
               </span>
               <span className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" />
+                <Phone className="h-4 w-4 text-white" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="hover:text-primary transition duration-300"
+                  className="hover:text-gray-300 transition duration-300"
                   title="Ligar"
                 >
                   {siteConfig.contact.phone}
@@ -64,11 +68,11 @@ export function Footer() {
               <span className="flex items-center gap-2">
                 <FontAwesomeIcon
                   icon={faWhatsapp}
-                  className="text-primary w-4 h-4"
+                  className="text-white w-4 h-4"
                 />
                 <a
                   href={`https://wa.me/${siteConfig.contact.whatsapp}`}
-                  className=" hover:text-primary transition duration-300"
+                  className=" hover:text-gray-300 transition duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="WhatsApp"
@@ -77,7 +81,7 @@ export function Footer() {
                 </a>
               </span>
               <span className="flex items-stretch gap-2">
-                <MapPin className="h-4 w-4 mt-1 text-primary" />
+                <MapPin className="h-4 w-4 mt-1 text-white" />
                 {siteConfig.contact.address.rua} <br />
                 {siteConfig.contact.address.bairro} -
                 {siteConfig.contact.address.cidade}/
@@ -88,12 +92,12 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Siga-nos!</h3>
+            <h3 className="text-xl text-white font-semibold">Siga-nos!</h3>
             <SocialIcons />
           </div>
         </div>
 
-        <div className="mt-10 border-t pt-6 text-center text-sm text-muted-foreground">
+        <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center text-white">
           © {year} SiteBase. Todos os direitos reservados.
         </div>
       </section>

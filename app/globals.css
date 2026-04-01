@@ -60,9 +60,9 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(50.882% 0.12868 250.882);
+  --primary: oklch(52.181% 0.20828 289.633);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(79.849% 0.0974 258.672);
+  --secondary: oklch(58.928% 0.21678 290.615);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -142,7 +142,7 @@ footer h3::after{
   width: 1.875rem;
   height: .125rem;
   border-radius: 6.25rem;
-  background-color: var(--primary);
+  background-color: #f6f6f6;
   margin-top: .125rem;
 }
 
@@ -195,4 +195,18 @@ footer h3::after{
 
 .no-arrows-scroll::-webkit-scrollbar-button {
   display: none;
+}
+
+/* BANNER */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
 }
