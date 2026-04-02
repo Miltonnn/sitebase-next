@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export function Empresa() {
   return (
-    <section className="container py-15">
+    <section className="container py-20">
       <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-20 justify-between">
         <div>
           <Image

@@ -25,7 +25,7 @@ export function Mvv() {
   return (
     <section className="container py-20">
       <div className="text-center mb-16">
-        <span className="text-primary uppercase mb-4 block font-normal text-lg">
+        <span className="text-primary uppercase mb-4 block font-medium text-lg">
           Nossos Valores
         </span>
         <h2 className="mb-4 text-dark font-semibold text-lg">O que nos move</h2>
