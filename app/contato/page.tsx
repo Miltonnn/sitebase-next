@@ -11,12 +11,12 @@ export default function ContatoPage() {
     <section>
       <Breadcrumb />
       <div className="container py-15">
-        <div className="grid grid-cols-12 items-stretch py-10 gap-5 lg:gap-20">
-          <div className="col-span-12 xl:col-span-6 md:p-5" data-aos="fade-right">
-            <h2 className="text-3xl font-bold text-primary mb-4">
+        <div className="grid grid-cols-12 items-center py-10 gap-10 lg:gap-20">
+          <div className="col-span-12 xl:col-span-6" data-aos="fade-right">
+            <h2 className="text-3xl font-medium text-dark mb-4">
               Informções de contato
             </h2>
-            <p>
+            <p className="text-muted-foreground">
               Solicite informações, orçamentos ou dúvidas técnicass
               <span className="block">nossa equipe responde com agilidade</span>
             </p>

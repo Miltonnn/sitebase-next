@@ -8,7 +8,7 @@ export function Hero() {
       <div className="container absolute z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
           <div className="flex flex-col items-center xl:items-start text-center xl:text-left" data-aos="fade-right">
-            <h1 className="text-4xl md:text-6xl font-semibold md:leading-18 max-w-3xl text-dark">
+            <h1 className="text-4xl md:text-6xl font-medium md:leading-18 max-w-3xl text-dark">
               <span className="block">Transforme seu</span>
               <span className="block">negócio com</span>
               <span className="block text-primary">soluções digitais</span>

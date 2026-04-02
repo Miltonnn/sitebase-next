@@ -10,11 +10,11 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-t-amber-50 bg-gradient-to-r from-primary to-blue-400">
+    <footer className="border-t border-t-amber-50 bg-gradient-to-r from-primary to-blue-500">
       <section className="container py-15">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 xl:gap-20">
           <div className="space-y-4">
-            <h2 className="text-xl text-white text-white font-bold">
+            <h2 className="text-xl text-white font-bold">
               SiteBase
             </h2>
             <p className="text-md text-white">
@@ -23,7 +23,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-xl text-white text-white font-semibold">
+            <h3 className="text-xl text-white font-semibold">
               Navegação
             </h3>
 
