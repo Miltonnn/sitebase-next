@@ -40,7 +40,7 @@ export function Empresa() {
             asChild
             size="lg"
             variant="outline"
-            className="bg-transparent text-lg p-6 bg-outline text-primary border-primary hover:bg-black hover:text-gray-100 hover:border-black duration-400 w-fit mt-4"
+            className="p-6 w-fit mt-4"
           >
             <Link href="\quem-somos" title="Empresa">
               Conheça nossa história

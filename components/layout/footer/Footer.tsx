@@ -10,9 +10,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-gradient-to-r from-primary to-purple-500">
+    <footer className="border-t border-t-amber-50 bg-gradient-to-r from-primary to-blue-400">
       <section className="container py-15">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 xl:gap-20">
           <div className="space-y-4">
             <h2 className="text-xl text-white text-white font-bold">
               SiteBase

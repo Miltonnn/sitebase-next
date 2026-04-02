@@ -5,19 +5,19 @@ export function Mvv() {
     {
       titulo: "Missão",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quisquam, impedit aliquid iure obcaecati repellendus quas illum rerum fuga.",
+        "Transformar ideias em soluções digitais inovadoras que impulsionam o sucesso dos nossos clientes.",
       icon: <Rocket size={35} />,
     },
     {
       titulo: "Visão",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quisquam, impedit aliquid iure obcaecati repellendus quas illum rerum fuga.",
+        "Ser referência em excelência tecnológica e parceria estratégica para empresas que buscam crescimento.",
       icon: <Eye size={35} />,
     },
     {
       titulo: "Valores",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quisquam, impedit aliquid iure obcaecati repellendus quas illum rerum fuga.",
+        "Inovação, transparência, compromisso com qualidade e foco em resultados excepcionais.",
       icon: <Gem size={35} />,
     },
   ];
@@ -34,13 +34,13 @@ export function Mvv() {
           parceiros.
         </p>
       </div>
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-10">
+     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         {mvvData.map((item, index) => (
           <div
             key={index}
             className="card-mvv text-center flex flex-col items-center gap-2"
           >
-            <span className="mb-4 inline-flex items-center justify-center p-4 rounded-xl bg-gradient-to-r from-primary to-purple-500 text-white">
+            <span className="mb-4 inline-flex items-center justify-center p-4 rounded-xl bg-gradient-to-r from-primary to-blue-400 text-white">
               {item.icon}
             </span>
             <h3 className="text-2xl font-semibold text-dark mb-3">

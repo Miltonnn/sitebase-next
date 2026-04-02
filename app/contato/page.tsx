@@ -12,7 +12,7 @@ export default function ContatoPage() {
       <Breadcrumb />
       <div className="container py-15">
         <div className="grid grid-cols-12 items-stretch py-10 gap-5 lg:gap-20">
-          <div className="col-span-12 xl:col-span-6 md:p-5">
+          <div className="col-span-12 xl:col-span-6 md:p-5" data-aos="fade-right">
             <h2 className="text-3xl font-bold text-primary mb-4">
               Informções de contato
             </h2>
@@ -89,7 +89,7 @@ export default function ContatoPage() {
               </div>
             </div>
           </div>
-          <div className="col-span-12 xl:col-span-6">
+          <div className="col-span-12 xl:col-span-6" data-aos="fade-left">
             <Formulario />
           </div>
         </div>

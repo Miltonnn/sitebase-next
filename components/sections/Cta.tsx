@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 export function Cta() {
   return (
     <section className="py-20">
-      <div className="container flex flex-col items-center justify-center gap-5 text-center bg-gradient-to-r from-primary to-purple-500 py-20 rounded-4xl shadow-2xl">
+      <div className="container flex flex-col items-center justify-center gap-5 text-center bg-gradient-to-r from-primary to-blue-400 py-20 lg:rounded-4xl shadow-2xl">
         <h2 className="text-3xl font-bold text-white">
           Pronto para transformar seu negócio?
         </h2>
@@ -23,7 +23,7 @@ export function Cta() {
             asChild
             variant="outline"
             size="lg"
-            className="bg-transparent text-lg p-7 bg-outline text-white border-white hover:bg-black hover:text-gray-100 hover:border-black  duration-400"
+            className="text-white border-white p-7"
           >
             <Link href="/contato" title="Contato">
               Agendar demonstração
