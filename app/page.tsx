@@ -12,8 +12,8 @@ export default function Home() {
       <Empresa />
       <Services />
       <SeoProcesso />
-      <Mvv />
       <Cta />
+      <Mvv />
     </>
   );
 }

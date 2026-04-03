@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { services } from "./services.data";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function Services() {
   return (
@@ -20,7 +21,7 @@ export function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
+          {services.slice(0, 6).map((service, index) => {
             const Icon = service.icon;
 
             return (
@@ -51,6 +52,14 @@ export function Services() {
               </div>
             );
           })}
+        </div>
+        <div className="flex justify-center mt-9">
+          <Button asChild size="lg" className="p-7 text-lg">
+            <Link href="/servicos" title="Serviços">
+              Ver todos os serviços
+              <ArrowRight className="ml-2" size={20} />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
