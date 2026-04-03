@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -13,19 +14,22 @@ export function Footer() {
     <footer className="border-t border-t-amber-50 bg-gradient-to-r from-primary to-blue-500">
       <section className="container py-15">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 xl:gap-20">
-          <div className="space-y-4">
-            <h2 className="text-xl text-white font-bold">
-              SiteBase
-            </h2>
+          <div className="flex flex-col space-y-4">
+            <Image
+              src="/assets/logo.png"
+              alt="SiteBase"
+              title="SiteBase"
+              width={60}
+              height={60}
+              className="brightness-0 invert"
+            />
             <p className="text-md text-white">
               Desenvolvendo soluções modernas e eficientes para o seu negócio.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-xl text-white font-semibold">
-              Navegação
-            </h3>
+            <h3 className="text-xl text-white font-semibold">Navegação</h3>
 
             <nav className="flex flex-col gap-2 text-md text-white">
               {navigationLinks.map((link) => (

@@ -7,7 +7,7 @@ export function Services() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-left">
           <span className="text-primary uppercase mb-4 block font-medium text-lg">
             Serviços
           </span>
@@ -20,7 +20,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-right">
           {services.slice(0, 6).map((service, index) => {
             const Icon = service.icon;
 

@@ -51,7 +51,7 @@ export function SeoProcesso() {
 
   return (
     <section className="py-20 container">
-      <div className="text-center mb-16">
+      <div className="text-center mb-16" data-aos="fade-right">
         <span className="text-primary uppercase mb-4 block font-medium text-lg">
           Como Funciona
         </span>
@@ -68,6 +68,7 @@ export function SeoProcesso() {
           <div
             key={index}
             className="bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/20 transition-all text-center"
+            data-aos="fade-up"
           >
             <div className="w-16 h-16 bg-linear-to-r from-primary to-blue-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
               <span className="text-2xl">{step.number}</span>

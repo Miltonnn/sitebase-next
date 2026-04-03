@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 export function Cta() {
   return (
     <section className="py-20">
-      <div className="container flex flex-col items-center justify-center gap-5 text-center bg-gradient-to-r from-primary to-blue-400 py-20 lg:rounded-4xl shadow-2xl">
+      <div className="container flex flex-col items-center justify-center gap-5 text-center bg-gradient-to-r from-primary to-blue-400 py-20 lg:rounded-4xl shadow-2xl" data-aos="fade-right">
         <h2 className="text-3xl font-bold text-white">
           Pronto para transformar seu negócio?
         </h2>

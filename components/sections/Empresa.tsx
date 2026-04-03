@@ -7,7 +7,7 @@ export function Empresa() {
   return (
     <section className="container py-20">
       <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-20 justify-between">
-        <div>
+        <div data-aos="fade-down-right">
           <Image
             src="/assets/empresa/empresa.jpg"
             alt="Imagem ilustrativa"
@@ -18,7 +18,7 @@ export function Empresa() {
           />
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3" data-aos="fade-down-left">
           <h2 className="text-4xl font-bold text-primary">
             {siteConfig.name}
             <span className="text-sm font-semibold block text-gray-600 tracking-widest">

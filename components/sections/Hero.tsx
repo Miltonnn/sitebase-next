@@ -5,7 +5,7 @@ import { Award } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen md:h-[90vh] flex items-center justify-center bg-gray-50">
+    <section className="relative w-full h-[100vh] md:h-[90vh] flex items-center justify-center bg-gray-50">
       <div className="container absolute z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
           <div
@@ -13,7 +13,7 @@ export function Hero() {
             data-aos="fade-right"
           >
 
-            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 mt-20">
               <span className="flex items-center gap-2">
                 <Award className="w-4 h-4" />
                 Seu site na primeira página do Google
@@ -61,7 +61,7 @@ export function Hero() {
                 <div className="text-muted-foreground">Satisfação</div>
               </div>
               <div>
-                <div className="text-3xl text-primary mb-1">10+</div>
+                <div className="text-3xl text-primary mb-1">3+</div>
                 <div className="text-muted-foreground">Anos</div>
               </div>
             </div>
@@ -74,7 +74,7 @@ export function Hero() {
               title="Imagem ilustrativa"
               width={600}
               height={600}
-              className="hidden xl:block float"
+              className="hidden xl:block float drop-shadow-[0_10px_10px_rgba(0,0,0,0.1)]"
             />
           </div>
         </div>

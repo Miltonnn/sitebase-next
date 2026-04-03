@@ -30,7 +30,7 @@ export default function Garantia() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container">
-        <div className="text-center mb-16 space-y-2">
+        <div className="text-center mb-16 space-y-2" data-aos="fade-right">
           <span className="text-primary uppercase font-medium text-lg block">
             Nossas Garantias
           </span>
@@ -45,6 +45,7 @@ export default function Garantia() {
             <div
               key={index}
               className="bg-card border-2 border-primary/20 rounded-2xl p-8 text-center hover:shadow-xl hover:border-primary transition-all"
+              data-aos="fade-down"
             >
               <div className="w-16 h-16 bg-linear-to-r from-primary to-blue-400 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <garantia.icon className="w-8 h-8" />
