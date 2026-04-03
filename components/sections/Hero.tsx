@@ -1,13 +1,25 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Award } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[100vh] md:h-[90vh] flex items-center justify-center bg-gray-50">
+    <section className="relative w-full h-screen md:h-[90vh] flex items-center justify-center bg-gray-50">
       <div className="container absolute z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
-          <div className="flex flex-col items-center xl:items-start text-center xl:text-left" data-aos="fade-right">
+          <div
+            className="flex flex-col items-center xl:items-start text-center xl:text-left"
+            data-aos="fade-right"
+          >
+
+            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+              <span className="flex items-center gap-2">
+                <Award className="w-4 h-4" />
+                Seu site na primeira página do Google
+              </span>
+            </div>
+
             <h1 className="text-4xl md:text-6xl font-medium md:leading-18 max-w-3xl text-dark">
               <span className="block">Transforme seu</span>
               <span className="block">negócio com</span>
@@ -37,6 +49,7 @@ export function Hero() {
                   Nossos Serviços
                 </Link>
               </Button>
+
             </div>
             <div className="flex justify-center xl:justify-start gap-8 mt-12 pt-8 border-t border-border w-full">
               <div>
@@ -53,7 +66,8 @@ export function Hero() {
               </div>
             </div>
           </div>
-          <div className="flex justify-end"  data-aos="fade-left">
+          
+          <div className="flex justify-end" data-aos="fade-left">
             <Image
               src="/assets/banner/img-banner.png"
               alt="Imagem ilustrativa"

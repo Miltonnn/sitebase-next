@@ -38,9 +38,9 @@ export function Mvv() {
         {mvvData.map((item, index) => (
           <div
             key={index}
-            className="card-mvv text-center flex flex-col items-center gap-2  p-10 shadow-md border-1 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+            className="card-mvv text-center flex flex-col items-center gap-2  p-10 shadow-md border rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
           >
-            <span className="mb-4 inline-flex items-center justify-center p-4 rounded-xl bg-gradient-to-r from-primary to-blue-400 text-white">
+            <span className="mb-4 inline-flex items-center justify-center p-4 rounded-xl bg-linear-to-r from-primary to-blue-400 text-white">
               {item.icon}
             </span>
             <h3 className="text-2xl font-semibold text-dark mb-3">
