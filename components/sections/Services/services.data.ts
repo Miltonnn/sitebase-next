@@ -5,10 +5,8 @@ import {
   Shield,
   Zap,
   Users,
-  Smartphone,
   Search,
   Database,
-  Cloud,
   MessageSquare,
   BarChart,
 } from 'lucide-react';
@@ -19,12 +17,6 @@ export const services = [
       title: "Desenvolvimento Web",
       description:
         "Sites e aplicações web responsivas, modernas e otimizadas. Utilizamos as tecnologias mais recentes como React, Next.js, Node.js e TypeScript.",
-    },
-    {
-      icon: Smartphone,
-      title: "Aplicativos Mobile",
-      description:
-        "Apps nativos e híbridos para iOS e Android. Experiências mobile intuitivas que seus usuários vão amar.",
     },
     {
       icon: Palette,
@@ -49,12 +41,6 @@ export const services = [
       title: "APIs & Integrações",
       description:
         "Desenvolvimento de APIs REST e GraphQL. Integrações com sistemas terceiros e automações.",
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Computing",
-      description:
-        "Infraestrutura na nuvem (AWS, Google Cloud, Azure). Escalável, segura e confiável.",
     },
     {
       icon: Shield,
