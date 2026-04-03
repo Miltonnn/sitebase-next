@@ -63,7 +63,7 @@ export function SeoProcesso() {
           do Google.
         </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {seoProcess.map((step, index) => (
           <div
             key={index}

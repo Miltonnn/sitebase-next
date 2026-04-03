@@ -40,7 +40,7 @@ export default function Garantia() {
             trabalho.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {garantia.map((garantia, index) => (
             <div
               key={index}

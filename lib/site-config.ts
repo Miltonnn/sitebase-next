@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "DevMundo",
+  name: "TecMundo",
   description: "Buscando sempre o melhor negócio para você",
 
   contact: {

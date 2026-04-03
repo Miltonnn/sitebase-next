@@ -4,7 +4,10 @@ import { Button } from "../ui/button";
 export function Cta() {
   return (
     <section className="py-20">
-      <div className="container flex flex-col items-center justify-center gap-5 text-center bg-gradient-to-r from-primary to-blue-400 py-20 lg:rounded-4xl shadow-2xl" data-aos="fade-right">
+      <div
+        className="container flex flex-col items-center justify-center gap-5 text-center bg-linear-to-r from-primary to-blue-400 py-20 xl:rounded-4xl shadow-2xl"
+        data-aos="fade-right"
+      >
         <h2 className="text-3xl font-bold text-white">
           Pronto para transformar seu negócio?
         </h2>
@@ -13,7 +16,11 @@ export function Cta() {
           empresa a alcançar <br /> novos patamares no mundo digital.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Button asChild size="lg" className="p-7 text-lg bg-white text-dark  duration-400 hover:bg-secondary hover:text-white">
+          <Button
+            asChild
+            size="lg"
+            className="p-7 text-lg bg-white text-dark  duration-400 hover:bg-secondary hover:text-white"
+          >
             <Link href="/contato" title="Contato">
               Falar com especialista
             </Link>

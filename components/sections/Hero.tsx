@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative w-full h-screen md:h-[90vh] flex items-center justify-center md:bg-gray-50">
       <div className="container absolute z-30">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
+        <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-20">
           <div
             className="flex flex-col items-center xl:items-start text-center xl:text-left"
             data-aos="fade-right"
