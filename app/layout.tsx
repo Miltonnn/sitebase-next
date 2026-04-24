@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body>
         <AosInit />
         <Header />
         <main>{children}</main>

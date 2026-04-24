@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { services } from "./services.data";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { ServiceCard } from "./ServiceCard";
 
 export function Services() {
   return (
@@ -20,39 +21,12 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-right">
-          {services.slice(0, 6).map((service, index) => {
-            const Icon = service.icon;
-
-            return (
-              <div
-                key={index}
-                className="group bg-card border border-border rounded-xl p-8 hover:shadow-xl hover:-translate-y-1 hover:border-primary/20 transition-all duration-500 flex flex-col items-start"
-              >
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <Icon
-                    className="text-primary group-hover:scale-110 transition-transform"
-                    size={28}
-                  />
-                </div>
-
-                <h3 className="mb-3 font-semibold text-lg">{service.title}</h3>
-
-                <p className="text-muted-foreground mb-6 leading-relaxed flex-1">
-                  {service.description}
-                </p>
-
-                <Button
-                  variant="ghost"
-                  className="px-0 hover:bg-transparent hover:text-primary mt-auto text-md"
-                >
-                  Saiba mais
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.slice(0, 6).map((service, index) => (
+            <ServiceCard key={index} service={service} />
+          ))}
         </div>
+
         <div className="flex justify-center mt-9">
           <Button asChild size="lg" className="p-7 text-lg">
             <Link href="/servicos" title="Serviços">
