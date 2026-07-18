@@ -1,12 +1,16 @@
 import { Formulario } from "@/components/forms/Formulario";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Mapa } from "@/components/sections/Mapa";
+import { getCompany } from "@/lib/services/company.service";
 import { siteConfig } from "@/lib/site-config";
+
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Mail, MapPin, Phone } from "lucide-react";
 
-export default function ContatoPage() {
+export default async function ContatoPage() {
+  const company = await getCompany();
   return (
     <section>
       <Breadcrumb />
@@ -27,11 +31,13 @@ export default function ContatoPage() {
                 </div>
                 <span>
                   <h3 className="text-lg font-bold text-primary">Endereço</h3>
-                  {siteConfig.contact.address.rua} <br />
-                  {siteConfig.contact.address.bairro} -
-                  {siteConfig.contact.address.cidade}/
-                  {siteConfig.contact.address.estado} <br />
-                  CEP: {siteConfig.contact.address.cep}
+                  {company?.street}, {company?.number}
+                  <br />
+                  {company?.neighborhood} -
+                  {company?.city}/
+                  {company?.state}
+                  <br />
+                  CEP: {company?.zipCode}
                 </span>
               </div>
 

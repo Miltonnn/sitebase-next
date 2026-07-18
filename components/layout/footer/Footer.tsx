@@ -1,13 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
+
 import { navigationLinks } from "@/lib/navigation";
 import { SocialIcons } from "@/components/SocialIcons";
 import { siteConfig } from "@/lib/site-config";
+import { getCompany } from "@/lib/services/company.service";
+
 import { Mail, MapPin, Phone } from "lucide-react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import Image from "next/image";
 
-export function Footer() {
+export async function Footer() {
+  const company = await getCompany();
+
   const year = new Date().getFullYear();
 
   return (
@@ -16,15 +22,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 xl:gap-20">
           <div className="flex flex-col space-y-4">
             <Image
-              src="/assets/logo.png"
-              alt="SiteBase"
-              title="SiteBase"
+              src={company?.logo || "/assets/logo.png"}
+              alt={company?.name || "SiteBase"}
+              title={company?.name || "SiteBase"}
               width={60}
               height={60}
               className="brightness-0 invert"
             />
             <p className="text-md text-white">
-              Desenvolvendo soluções modernas e eficientes para o seu negócio.
+              {company?.description}
             </p>
           </div>
 
@@ -86,11 +92,11 @@ export function Footer() {
               </span>
               <span className="flex items-stretch gap-2">
                 <MapPin className="h-4 w-4 mt-1 text-white" />
-                {siteConfig.contact.address.rua} <br />
-                {siteConfig.contact.address.bairro} -
-                {siteConfig.contact.address.cidade}/
-                {siteConfig.contact.address.estado} <br />
-                CEP: {siteConfig.contact.address.cep}
+                {company?.street}, {company?.number} <br />
+                {company?.neighborhood} -
+                {company?.city}/
+                {company?.state} <br />
+                CEP: {company?.zipCode}
               </span>
             </div>
           </div>
