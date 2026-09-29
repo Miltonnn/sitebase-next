@@ -1,4 +1,4 @@
-import { CatalogSection } from "../Catalog/CatalogSection";
+import { CatalogSection } from "@/components/catalog/CatalogSection";
 import { products } from "./products.data";
 
 export function Products() {

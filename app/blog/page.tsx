@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
-import { CatalogCard } from "@/components/sections/Catalog/CatalogCard";
+import { CatalogCard } from "@/components/catalog/CatalogCard";
 import { posts } from "@/components/sections/Blog/blog.data";
 import { siteSections } from "@/lib/site-sections";
 import { notFound } from "next/navigation";

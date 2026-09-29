@@ -1,5 +1,5 @@
 import type { NavLink } from "@/lib/navigation";
-import { createCatalogItems } from "../Catalog/catalog.data";
+import { createCatalogItems } from "@/components/catalog/catalog.data";
 
 export const serviceLinks: NavLink[] = [
   {

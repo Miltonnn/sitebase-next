@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { CatalogItem } from "../Catalog/catalog.data";
+import type { CatalogItem } from "@/components/catalog/catalog.data";
 
 interface ProductDetailProps {
   product: CatalogItem;
