@@ -11,7 +11,7 @@ interface CatalogCardProps {
 export function CatalogCard({ item }: CatalogCardProps) {
   return (
     <div className="group bg-card border border-border rounded-xl overflow-hidden h-full flex flex-col text-left hover:shadow-xl hover:-translate-y-1 hover:border-primary/20 transition-all duration-500">
-      <div className="relative aspect-[564/350] overflow-hidden">
+      <div className="relative aspect-[2/2] overflow-hidden">
         <Image
           src={item.image}
           alt={item.name}
@@ -30,7 +30,7 @@ export function CatalogCard({ item }: CatalogCardProps) {
 
         <Button
           asChild
-          className="mt-auto"
+          className="mt-auto h-[44px] w-[50%] rounded-[4px]"
           title={`Saiba mais sobre ${item.name}`}
         >
           <Link href={item.href}>

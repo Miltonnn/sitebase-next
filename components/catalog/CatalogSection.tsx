@@ -38,7 +38,11 @@ export function CatalogSection({
         </CatalogCarousel>
 
         <div className="flex justify-center mt-9">
-          <Button asChild size="lg" className="p-7 text-lg">
+          <Button
+            asChild
+            size="lg"
+            className="p-7 text-lg bg-linear-to-r from-gray-950 to-gray-800 hover:opacity-90 transition-opacity"
+          >
             <Link href={allHref} title={eyebrow}>
               {allLabel}
               <ArrowRight className="ml-2" size={20} />
