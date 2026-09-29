@@ -1,4 +1,5 @@
-import { services } from "@/lib/navigation";
+import { services } from "@/components/sections/Services/services.data";
+import { ServiceDetail } from "@/components/sections/Services/ServiceDetail";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
@@ -30,13 +31,7 @@ export default async function ServicoDetalhe({ params }: Props) {
   return (
     <section>
       <Breadcrumb />
-      <div className="container py-20">
-        <h1 className="text-4xl font-bold mb-6">{service.name}</h1>
-
-        <p className="text-muted-foreground text-lg max-w-2xl">
-          {service.description}
-        </p>
-      </div>
+      <ServiceDetail service={service} />
     </section>
   );
 }

@@ -1,43 +1,43 @@
 import type { NavLink } from "@/lib/navigation";
 import { createCatalogItems } from "../Catalog/catalog.data";
 
-export const serviceLinks: NavLink[] = [
+export const postLinks: NavLink[] = [
   {
-    name: "Serviço 1",
-    href: "/servicos/servico-1",
+    name: "Post 1",
+    href: "/blog/post-1",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    name: "Serviço 2",
-    href: "/servicos/servico-2",
+    name: "Post 2",
+    href: "/blog/post-2",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    name: "Serviço 3",
-    href: "/servicos/servico-3",
+    name: "Post 3",
+    href: "/blog/post-3",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    name: "Serviço 4",
-    href: "/servicos/servico-4",
+    name: "Post 4",
+    href: "/blog/post-4",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    name: "Serviço 5",
-    href: "/servicos/servico-5",
+    name: "Post 5",
+    href: "/blog/post-5",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    name: "Serviço 6",
-    href: "/servicos/servico-6",
+    name: "Post 6",
+    href: "/blog/post-6",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];
 
-export const services = createCatalogItems(serviceLinks, "servicos");
+export const posts = createCatalogItems(postLinks, "blog");
