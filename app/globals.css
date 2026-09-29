@@ -4,9 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 .container {
+  --container-gutter: clamp(1rem, 5vw, 4rem);
   margin-inline: auto;
-  max-width: 1600px;
-  padding-inline: clamp(1rem, 5vw, 4rem);
+  max-width: calc(1440px + var(--container-gutter) * 2);
+  padding-inline: var(--container-gutter);
 }
 
 @theme inline {
