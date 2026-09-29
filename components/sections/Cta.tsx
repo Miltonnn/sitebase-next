@@ -5,7 +5,7 @@ export function Cta() {
   return (
     <section className="py-20">
       <div
-        className="container flex flex-col items-center justify-center gap-5 text-center bg-linear-to-r from-primary to-blue-400 py-20 xl:rounded-[8px] shadow-2xl"
+        className="flex flex-col items-center justify-center gap-5 text-center bg-linear-to-r from-primary bg-primary py-20 shadow-2xl"
         data-aos="fade-right"
       >
         <h2 className="text-3xl font-bold text-white">
