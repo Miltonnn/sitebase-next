@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { CatalogCard } from "./CatalogCard";
 import type { CatalogItem } from "./catalog.data";
@@ -12,9 +18,13 @@ interface CatalogCarouselProps {
 }
 
 const arrowClassName =
-  "size-11 rounded-full flex items-center justify-center transition-all bg-white text-foreground shadow-md enabled:hover:bg-gray-100 enabled:hover:shadow-lg disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50";
+  "size-8 rounded-full flex items-center justify-center transition-all bg-white text-foreground shadow-md enabled:hover:bg-gray-100 enabled:hover:shadow-lg disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50";
 
-export function CatalogCarousel({ items, label, children }: CatalogCarouselProps) {
+export function CatalogCarousel({
+  items,
+  label,
+  children,
+}: CatalogCarouselProps) {
   const trackRef = useRef<HTMLUListElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
@@ -43,7 +53,10 @@ export function CatalogCarousel({ items, label, children }: CatalogCarouselProps
     if (!track || !card) return;
 
     const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-    track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: "smooth" });
+    track.scrollBy({
+      left: direction * (card.offsetWidth + gap),
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -51,7 +64,11 @@ export function CatalogCarousel({ items, label, children }: CatalogCarouselProps
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between mb-10">
         {children}
 
-        <div role="group" aria-label={`Navegação de ${label}`} className="flex gap-3 shrink-0">
+        <div
+          role="group"
+          aria-label={`Navegação de ${label}`}
+          className="flex gap-3 shrink-0"
+        >
           <button
             type="button"
             onClick={() => scroll(-1)}
@@ -59,7 +76,7 @@ export function CatalogCarousel({ items, label, children }: CatalogCarouselProps
             aria-label="Anterior"
             className={arrowClassName}
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={18} />
           </button>
           <button
             type="button"
@@ -68,7 +85,7 @@ export function CatalogCarousel({ items, label, children }: CatalogCarouselProps
             aria-label="Próximo"
             className={arrowClassName}
           >
-            <ArrowRight size={20} />
+            <ArrowRight size={18} />
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "browse": "start http://localhost:3000 && npm run dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
